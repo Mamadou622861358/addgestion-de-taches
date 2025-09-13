@@ -46,6 +46,12 @@ app.use(
 const path = require("path");
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+
+// Route racine pour vérifier l'état de l'API
+app.get("/", (req, res) => {
+  res.send("API Gestion de Tâches opérationnelle !");
+});
+
 // Import des routes
 app.use("/api/tasks", require("./routes/taskRoutes"));
 app.use("/api/users", userRoutes);
